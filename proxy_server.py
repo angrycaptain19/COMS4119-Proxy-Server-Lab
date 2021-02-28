@@ -57,6 +57,9 @@ if len(sys.argv) <= 1:
     print('Usage : "python ProxyServer.py server_ip"\n[server_ip : It is the IP Address Of Proxy Server')
     sys.exit(2)
 # Create a server socket, bind it to a port and start listening
+if not os.path.exists('cache'):
+    os.makedirs('cache')
+
 tcpSerSock = socket(AF_INET, SOCK_STREAM)
 # Fill in start.
 servPort = 8888
