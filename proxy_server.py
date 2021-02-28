@@ -19,6 +19,7 @@ def parse_if_modify(request):
         Proxy-Connection: Keep-Alive
         accept: application/json
         If-Modified-Since: Sun, 28 Feb 2021 19:41:00 GMT
+    return: for example, "Sun, 28 Feb 2021 19:41:00 GMT"
     """
     arr = request.split('\r')
     date = None

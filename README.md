@@ -17,8 +17,7 @@ curl -v GET "http://go.com" -H "If-Modified-Since: Sun, 28 Feb 2021 19:41:00 GMT
 curl -v GET "http://go.com" -H "If-Modified-Since: Sat, 27 Feb 2021 19:41:00 GMT" --proxy 127.0.0.1:8888
 
 ## POST
-
-curl -X POST "http://httpbin.org/post" -H "accept: application/json" --proxy 127.0.0.1:8888
+curl -v POST "http://httpbin.org/post" -H "accept: application/json" -d '{"Name":"Bob"}'
 
 # Sample codes
 echo_client.py
