@@ -1,0 +1,4 @@
+GET http://httpbin.org/get HTTP/1.0
+Host: httpbin.org
+accept: application/json
+
