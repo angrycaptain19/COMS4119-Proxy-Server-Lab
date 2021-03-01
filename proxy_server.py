@@ -135,8 +135,8 @@ try:
                     print("Client has the latest version!")
                     tcpCliSock.send("HTTP/1.1 304 Not Modified\r\n".encode())
                     # tcpCliSock.send("Content-Type:text/html\r\n".encode())
-                else:
-                    print("Client DOES NOT have the latest version!")
+                elif if_modified_date is None:
+
                     outputdata = f.readlines()
                     fileExist = "true"
                     tcpCliSock.send("HTTP/1.1 200 OK\r\n".encode())
@@ -146,6 +146,10 @@ try:
                         tcpCliSock.send(line.encode())
                     # Fill in end.
                     print('Read from cache')
+                else:
+                    # if modified since presents, but not up to date
+                    print("Client DOES NOT have the latest version with If modified since!")
+                    raise IOError
         # Error handling for file not found in cache
         except IOError:
             if fileExist == "false":
